@@ -1,0 +1,9 @@
+<div class= "container">
+    <h3>게시글 목록</h3>
+    <a href="/new"><button type="button" class="btn btn-secondary">글쓰기</button></a><br>
+    
+    <% @posts.each do |p| %>
+    제  목: <a href="/show/<%=p.id%>"><%=p.title %></a><br>
+    글쓴이: <%=p.editor %><br>
+    <% end %>
+</div>

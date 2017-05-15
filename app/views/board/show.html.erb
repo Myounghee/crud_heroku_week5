@@ -1,0 +1,11 @@
+
+제  목: <%=@show_post.title %><br>
+글쓴이: <%=@show_post.editor %><br>
+<br>
+<글 내용><br>
+<%=@show_post.content %>
+<a href="/edit/<%=@show_post.id%>">수정</a>
+<a href="/delete/<%=@show_post.id%>">삭제</a>
+<br>
+<br>
+<a href="/index">목록</a>

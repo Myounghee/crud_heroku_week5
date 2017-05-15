@@ -1,0 +1,16 @@
+<h1>글 수정하기</h1>
+    <form action="/update/<%=@upd_post.id%>" method="POST">
+      <div class="form-group">
+        <label for="InputTitle">Title</label>
+        <input type="text" class="form-control" value="<%=@upd_post.title%>" name="title" id="title" placeholder="Enter title">
+      </div>
+      <div class="form-group">
+        <label for="InputEditor">Editor</label>
+        <input type="text" class="form-control" name="editor" value="<%=@upd_post.editor%>" id="editor" placeholder="Enter editor">
+      </div>
+      <div class="form-group">
+        <label for="Textarea">Content</label>
+        <textarea class="form-control" name="content" id="content" rows="3"><%=@upd_post.content%></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form> 
