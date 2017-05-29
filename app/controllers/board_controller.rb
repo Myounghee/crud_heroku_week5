@@ -5,6 +5,7 @@ class BoardController < ApplicationController
 
   def show
     @show_post = Post.find(params[:post_id])
+    @new_reply = Reply.all
   end
 
   def new
@@ -39,7 +40,8 @@ class BoardController < ApplicationController
     upd_post.content = params[:content]
     upd_post.save
     
-    show_path = "/show/" +params[:post_id]
+    show_path = "/show/" +params[:post_id].to_s
     redirect_to show_path
   end
+
 end

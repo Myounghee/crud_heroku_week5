@@ -1,11 +1,37 @@
 
-제  목: <%=@show_post.title %><br>
-글쓴이: <%=@show_post.editor %><br>
 <br>
-<글 내용><br>
+<h4>제  목: <%=@show_post.title %></h4>
+<h4>글쓴이: <%=@show_post.editor %></h4><br>
+<br>
+<h2>[글 내용]</h2><br>
 <%=@show_post.content %>
 <a href="/edit/<%=@show_post.id%>">수정</a>
 <a href="/delete/<%=@show_post.id%>">삭제</a>
 <br>
+    
+    
+    <div class = "well">
+            <% @new_reply.each do |r| %>
+            <%= r.content %>
+            <%= r.editor %>
+            <a href= "/reply_delete/<%=r.id%>">[삭제]</a><br>
+            <% end%>
+            <br>
+            <form action ="/reply_create" method="POST">
+                <input type="hidden" name = "postid" value = "<%=@show_post.id %>">
+                <div class="form-group">
+                <label for="InputEditor">editor</label>
+                <input type="text" class="form-control" name="editor" id="editor" placeholder="Enter editor">
+                </div>
+                <div class="form-group">
+                <label for="exampleInputPassword1">댓글 내용</label>
+                <textarea class="form-control" name = "content" rows="2" placeholder = "내용을 입력하세요" id="comment"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-default">댓글 작성</button>
+            </form>
+        </div>
+
 <br>
 <a href="/index">목록</a>
+
